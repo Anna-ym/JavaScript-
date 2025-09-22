@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p id="abc"></p>
+    Enter year: <input type="text" id="a"><br>
+    Enter month: <input type="text" id="b"><br>
+    <button onclick="generateCalendar()">Generate Calendar</button><br>
+    
+    <script>
+        function generateCalendar() {
+        let x=parseInt(document.getElementById("a").value);
+        let y=parseInt(document.getElementById("b").value);
+         if (isNaN(x) || isNaN(y) || y < 0 || y > 11) {
+        document.getElementById("abc").innerHTML = "Please enter a valid year and month (0-11).";
+        return;
+      }
+        var d="<table border='1'><tr><th>SUN</th><th>MON</th><th>TUE</th><th>WED</th><th>THU</th><th>FRI</th><th>SAT</th></tr>";
+            var c=new Date(x,y,1);
+            var day=c.getDay();
+            for(var i=0;i<day;i++){
+                d+="<td></td>";
+            }
+            while(c.getMonth()==y){
+                d+="<td>"+c.getDate()+"</td>";
+                if(c.getDay()%7==6){
+                    d+="</tr><tr>";
+
+                }
+
+                c.setDate(c.getDate()+1);
+            }
+            d+="</table>";
+            
+            document.getElementById("abc").innerHTML=d;
+        }
+    </script>
+
+</body>
+</html>
