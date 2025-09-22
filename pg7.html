@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <CENTER><h2><U>MATH FUNCTIONS</U></h2></CENTER>
+    ENTER A NUMBER:<input type="text" id="a"><br>
+    ENTER A NUMBER:<input type="text" id="b"><br>
+    <button onclick="power()">POWER</button>
+    <button onclick="sqrt()">SQUAREROOT</button>
+    <button onclick="abs()">ABS</button>
+    <button onclick="ceil()">CEIL</button>
+    <button onclick="floor()">FLOOR</button>
+    <button onclick="round()">ROUND</button><br>
+    OUTPUT: <input type="text" id="o"><br>
+    <script>
+    function sqrt(){
+        let x=parseFloat(document.getElementById("a").value);
+        document.getElementById("o").value=Math.sqrt(x);
+    }
+    function power(){
+        let x=parseFloat(document.getElementById("a").value);
+        let y=parseFloat(document.getElementById("b").value);
+        document.getElementById("o").value=Math.pow(x,y);
+    }
+    function abs(){
+        let x=parseFloat(document.getElementById("a").value);
+        document.getElementById("o").value=Math.abs(x);
+    }
+    function ceil(){
+        let x=parseFloat(document.getElementById("a").value);
+        document.getElementById("o").value=Math.ceil(x);
+    }
+    function floor(){
+        let x=parseFloat(document.getElementById("a").value);
+        document.getElementById("o").value=Math.floor(x);
+    }
+    function round(){
+        let x=parseFloat(document.getElementById("a").value);
+        document.getElementById("o").value=Math.round(x);
+    }
+    </script>
+    CENTER><h2><U>STRING FUNCTIONS</U></h2></CENTER>
+    ENTER A STRING:<input type="text" id="abc"><br>
+    <button onclick="len()">LENGTH</button>
+    <button onclick="uc()">UPPERCASE</button>
+    <button onclick="lc()">LOWERCASE</button>
+    <button onclick="i()">INDEX</button>
+    <button onclick="concat()">CONCATENATION</button><br>
+    OUTPUT: <input type="text" id="op"><br>
+    <script>
+        function len(){
+            let x=document.getElementById("abc").value;
+            document.getElementById("op").value=x.length;
+        }
+        function uc(){
+            let x=document.getElementById("abc").value;
+            let b=x.toUpperCase();
+        document.getElementById("op").value=b;
+        }
+        function lc(){
+            let x=document.getElementById("abc").value;
+            let b=x.toLowerCase();
+        document.getElementById("op").value=b;
+        }
+        function i(){
+            let x=document.getElementById("abc").value;
+            let b=x.indexOf("t");
+        document.getElementById("op").value=b;
+        }
+        function concat(){
+            let x=document.getElementById("abc").value;
+            let b=x.concat("hello");
+        document.getElementById("op").value=b;
+        }
+
+    </script>
+
+</body>
+</html>
