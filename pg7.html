@@ -13,6 +13,10 @@
     <button onclick="sqrt()">SQUAREROOT</button>
     <button onclick="abs()">ABS</button>
     <button onclick="ceil()">CEIL</button>
+    <button onclick="min()">MINIMUM</button>
+    <button onclick="sin()">SIN</button>
+    <button onclick="cos()">COS</button>
+    <button onclick="trunc()">TRUNC</button>
     <button onclick="floor()">FLOOR</button>
     <button onclick="round()">ROUND</button><br>
     OUTPUT: <input type="text" id="o"><br>
@@ -34,6 +38,13 @@
         let x=parseFloat(document.getElementById("a").value);
         document.getElementById("o").value=Math.ceil(x);
     }
+    function sin(){
+        let x=parseFloat(document.getElementById("a").value);
+        document.getElementById("o").value=Math.sin(x);}
+        function min(){
+        let x=parseFloat(document.getElementById("a").value);
+        document.getElementById("o").value=Math.min(x);
+    }
     function floor(){
         let x=parseFloat(document.getElementById("a").value);
         document.getElementById("o").value=Math.floor(x);
@@ -43,19 +54,24 @@
         document.getElementById("o").value=Math.round(x);
     }
     </script>
-    CENTER><h2><U>STRING FUNCTIONS</U></h2></CENTER>
+    <CENTER><h2><U>STRING FUNCTIONS</U></h2></CENTER>
     ENTER A STRING:<input type="text" id="abc"><br>
     <button onclick="len()">LENGTH</button>
     <button onclick="uc()">UPPERCASE</button>
+    <button onclick="sr()">SEARCH</button>
     <button onclick="lc()">LOWERCASE</button>
     <button onclick="i()">INDEX</button>
     <button onclick="concat()">CONCATENATION</button><br>
+    <button onclick="substring()">SUBSTRING</button>
+<button onclick="slice()">SLICE</button>
+<button onclick="replace()">REPLACE</button>
+<button onclick="lastIndexOfFunc()">LASTINDEXOF</button><br>
+
     OUTPUT: <input type="text" id="op"><br>
     <script>
         function len(){
             let x=document.getElementById("abc").value;
-            document.getElementById("op").value=x.length;
-        }
+            document.getElementById("op").value=x.length;}
         function uc(){
             let x=document.getElementById("abc").value;
             let b=x.toUpperCase();
@@ -76,6 +92,32 @@
             let b=x.concat("hello");
         document.getElementById("op").value=b;
         }
+        function substring(){
+    let x = document.getElementById("abc").value;
+    let b = x.substring(1,4);
+    document.getElementById("op").value = b;
+}
+
+function slice(){
+    let x = document.getElementById("abc").value;
+    let b = x.slice(1,4);
+    document.getElementById("op").value = b;
+}
+
+function replace(){
+    let x = document.getElementById("abc").value;
+    let b = x.replace('a','z');
+    document.getElementById("op").value = b;
+}
+
+
+
+function lastIndexOfFunc(){
+    let x = document.getElementById("abc").value;
+    let b = x.lastIndexOf('e');
+    document.getElementById("op").value = b;
+}
+
 
     </script>
 

@@ -1,44 +1,56 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Yearly Calendar</title>
 </head>
 <body>
-    <p id="abc"></p>
-    Enter year: <input type="text" id="a"><br>
-    Enter month: <input type="text" id="b"><br>
-    <button onclick="generateCalendar()">Generate Calendar</button><br>
-    
-    <script>
-        function generateCalendar() {
-        let x=parseInt(document.getElementById("a").value);
-        let y=parseInt(document.getElementById("b").value);
-         if (isNaN(x) || isNaN(y) || y < 0 || y > 11) {
-        document.getElementById("abc").innerHTML = "Please enter a valid year and month (0-11).";
-        return;
-      }
-        var d="<table border='1'><tr><th>SUN</th><th>MON</th><th>TUE</th><th>WED</th><th>THU</th><th>FRI</th><th>SAT</th></tr>";
-            var c=new Date(x,y,1);
-            var day=c.getDay();
-            for(var i=0;i<day;i++){
-                d+="<td></td>";
-            }
-            while(c.getMonth()==y){
-                d+="<td>"+c.getDate()+"</td>";
-                if(c.getDay()%7==6){
-                    d+="</tr><tr>";
+  <p id="abc"></p>
+  Enter year: <input type="text" id="a"><br>
+  <button onclick="generateCalendar()">Generate Calendar</button><br>
 
-                }
+  <script>
+    function generateCalendar() {
+      const year = parseInt(document.getElementById("a").value);
 
-                c.setDate(c.getDate()+1);
-            }
-            d+="</table>";
-            
-            document.getElementById("abc").innerHTML=d;
+      const monthNames = [
+        "January", "February", "March", "April", "May", "June",
+        "July", "August", "September", "October", "November", "December"
+      ];
+
+      let allCalendars = "";
+
+      for (let month = 0; month < 12; month++) {
+        let d = `<span style="display:inline-block; margin:10px;">`;
+         d += `<h3>${monthNames[month]}</h3>`;
+        d += "<table border='1' cellspacing='0' cellpadding='5'><tr><th>SUN</th><th>MON</th><th>TUE</th><th>WED</th><th>THU</th><th>FRI</th><th>SAT</th></tr><tr>";
+
+        let date = new Date(year, month, 1);
+        let startDay = date.getDay();
+
+       
+        for (let i = 0; i < startDay; i++) {
+          d += "<td></td>";
         }
-    </script>
 
+        while (date.getMonth() === month) {
+          d += `<td>${date.getDate()}</td>`;
+          if (date.getDay() === 6) {
+            d += "</tr><tr>";
+          }
+          date.setDate(date.getDate() + 1);
+        }
+
+        d += "</tr></table></span>"; 
+        allCalendars += d;
+        if ((month + 1) % 3 === 0) {
+            allCalendars += "<br>";
+}
+
+      }
+      document.getElementById("abc").innerHTML = allCalendars;
+    }
+  </script>
 </body>
 </html>

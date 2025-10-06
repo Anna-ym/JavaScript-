@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="str" style="cursor:pointer"> 
+    <img id="image" src="wp2767395.jpg" width="600px" height="300px">
+    <h1 id="text">WELCOME TO HOGWARTS</h1>
+    </div>
+    <script>
+        const str=document.getElementById("str");
+         const image=document.getElementById("image");
+         const text=document.getElementById("text");
+         
+        text.addEventListener("mouseover", function(){
+             image.src="wp4469548.jpg";
+            text.textContent="WHAT'S LIFE WITHOUT A FEW DRAGONS ";
+        });
+        text.addEventListener("mouseout", function(){
+            image.src="wp2767395.jpg";
+            text.textContent="WELCOME TO HOGWARTS";
+        });
+    </script>
+</body>
+</html>
