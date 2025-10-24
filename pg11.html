@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <marquee behaviour="alternate" scrollamount="15" direction="right" onmouseover="this.stop()" onmouseout="this.start()"><center><h1>WELCOME TO FRESHERS WORLD!!!</h1></center></marquee>
+    <form name="regform" onsubmit="return validateForm()">
+    <table border="2" align="center" width="800" height="500" style="background-color: bisque;">
+        <tr>
+            <th align="center" colspan="3">REGISTRATION FORM</th>
+        </tr>
+        <tr>
+            <td>Name</td>
+             
+               <td><input type="text" name="name"></td> 
+               <p style="color:red" id="name"></p>
+    
+        </tr>
+        <tr>
+            <td>Age</td>
+            
+                <td>
+                    <input type="text" name="age">
+                    <p style="color:red" id="age"></p>
+                </td>
+            
+        </tr>
+        <tr>
+            <td>Password</td>
+             
+               <td><input type="password" name="password"></td> 
+               <p style="color:red" id="password"></p>
+    
+        </tr>
+        <tr>
+            <td>Re-enter password</td>
+            
+               <td><input type="password" name="repassword"></td> 
+               <p style="color:red" id="repassword"></p>
+    
+        </tr>
+        <tr >
+            <td>Select your security questions</td>
+             
+               <td colspan="2"><input type="radio" name="abc">What is your pet name?<br>
+              <input type="radio" name="abc">Who is your bestfriend? <br>
+               <input type="radio" name="abc">What is your favourite color?<br> 
+               <input type="radio" name="abc">Who is your favourite teacher?</td><br>
+    
+        </tr>
+        <tr>
+            <td>Answer of security questions</td>
+             
+               <td><input type="text" name="answer"></td> 
+    
+        </tr>
+         <tr>
+            <td>Email id</td>
+             
+               <td><input type="email" name="email"></td> 
+               <p style="color:red" id="email"></p>
+    
+        </tr>
+        <tr>
+            <td>Languages known</td>
+            
+               <td><input type="checkbox" name="lang">Malayalam
+               <input type="checkbox" name="lang">English
+               <input type="checkbox" name="lang">Hindi</td>
+    
+        </tr>
+        <tr>
+            <td rowspan="1" >Phone number</td>
+            <td colspan="1"><input type="text" name="home" placeholder="Home" >
+
+            <input type="text" name="office" placeholder="Office">
+            </td>
+        </tr>
+        <tr>
+            <td>Upload CV</td>
+            
+              <td> <input type="file" name="cv"></td> 
+            
+        </tr>
+        <tr>
+            
+            <td><input type="reset" value="Reset"></td>
+            <td><input type="submit" value="Submit"></td>
+            
+        </tr>
+       
+
+   </form>
+    </table>
+    <script>
+        function validateForm(){
+           let name=document.forms["regform"]["name"].value;
+           let age=document.forms["regform"]["age"].value;
+           let password=document.forms["regform"]["password"].value;
+           let repassword=document.forms["regform"]["repassword"].value;
+           let email=document.forms["regform"]["email"].value;
+           let home=document.forms["regform"]["home"].value;
+           let office=document.forms["regform"]["office"].value;
+        
+        if(name === ""){
+            document.getElementById("name").innerHTML="cannot be blank";
+        }
+        if(age === ""){
+            document.getElementById("age").innerHTML="cannot be blank";
+
+        }else if(isNaN(age)){
+            document.getElementById("age").innerHTML="age should be a number";
+        }
+        if(password === ""){
+            document.getElementById("password").innerHTML="cannot be blank";
+        }
+        if(repassword === ""){
+            document.getElementById("repassword").innerHTML="cannot be blank";
+        }else if(password !== repassword){
+            document.getElementById("repassword").innerHTML="passwords do not match";
+        }
+        if(email === ""){
+            document.getElementById("email").innerHTML="cannot be blank";
+        }}
+    </script>
+</body>
+</html>
